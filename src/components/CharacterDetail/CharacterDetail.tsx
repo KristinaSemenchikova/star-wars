@@ -33,6 +33,7 @@ const CharacterDetail: React.FC = () => {
       localStorage.setItem(`character-${id}`, JSON.stringify(characterData));
 
       setCharacter(characterData);
+      fetchRelatedData(characterData);
     };
 
     const fetchRelatedData = async (character: Character) => {
@@ -70,8 +71,6 @@ const CharacterDetail: React.FC = () => {
     } else {
       setCharacter(baseInfo);
     }
-
-    fetchRelatedData(baseInfo);
   }, [state, id]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
